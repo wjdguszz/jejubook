@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jeju">
+	<resultMap type="com.jeju.dto.JejuDto" id="JejuDtoMap">
+		<result column="TEMANO" property="temaNo"/>
+		<result column="SORTNAME" property="sortName"/>
+		<result column="TITLE" property="title"/>
+		<result column="XMAP" property="xMap"/>
+		<result column="YMAP" property="yMap"/>
+		<result column="ADDR" property="addr"/>
+		<result column="PHONE" property="phone"/>
+		<result column="HOMEPAGE" property="homePage"/>
+		<result column="DESCRIPTION" property="description"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="JejuDto">
+		INSERT INTO JEJU VALUES(#{temaNo},#{sortName},#{title},#{xMap},#{yMap},#{addr},#{phone},#{homePage},#{description})
+	</insert>
+	
+</mapper>

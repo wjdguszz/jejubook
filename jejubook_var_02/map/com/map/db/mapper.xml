@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.map">
+	<resultMap type="com.map.dto.mapDto" id="MapDtoMap">
+		<result column="TEMANO" property="temaNo"/>
+		<result column="TITLE" property="title"/>
+		<result column="XMAP" property="xMap"/>
+		<result column="YMAP" property="yMap"/>
+		<result column="SORTNAME" property="sortName"/>
+		<result column="ADDR" property="addr"/>
+		<result column="PHONE" property="phone"/>
+		<result column="HOMEPAGE" property="homePage"/>
+		<result column="DESCRIPTION" property="description"/>
+	</resultMap>
+	
+	<select id="map" resultMap="MapDtoMap">
+		<choose>
+			<when test="temaNo==5">
+				SELECT * FROM JEJU WHERE TITLE LIKE '%'||#{title}||'%' OR PHONE LIKE '%'||#{title}||'%' OR DESCRIPTION LIKE '%'||#{title}||'%'
+			</when>
+			<otherwise>
+				SELECT * FROM JEJU WHERE TEMANO=#{temaNo} AND (TITLE LIKE '%'||#{title}||'%' OR PHONE LIKE '%'||#{title}||'%' OR DESCRIPTION LIKE '%'||#{title}||'%')
+			</otherwise>
+		</choose>
+	</select>
+</mapper>
