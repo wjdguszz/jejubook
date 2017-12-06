@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>	
+	//from github					
 	<h1><a href="controller.do?command=map">가자!</a></h1>
 </body>
 </html>
